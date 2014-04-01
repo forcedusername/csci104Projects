@@ -2,9 +2,9 @@
 
 ###Student Information
 **Developer 1**:
-  + Name: Anirudh Ramchandran
+  + Name: Ani Ramchandran
   + USC Email: anirudhr@usc.edu
-  + USC ID: 0123456789
+  + USC ID: 1555827853
 
 **Developer 2**:
   + Name: Jiayang Miao
