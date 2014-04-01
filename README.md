@@ -2,11 +2,14 @@
 
 ###Student Information
 **Developer 1**:
-  + Name: Tommy Trojan
-  + USC Email: ttrojan@usc.edu
+  + Name: Anirudh Ramchandran
+  + USC Email: anirudhr@usc.edu
   + USC ID: 0123456789
 
 **Developer 2**:
-  + Name: Traveler VII
-  + USC Email: traveler@usc.edu
-  + USC ID: 9876543210
+  + Name: Jiayang Miao
+  + USC Email: jiayangm@usc.edu
+  + USC ID: 4100366599
+
+####We've get contacted and started working on the project.
+
