@@ -11,3 +11,9 @@
 *.lai
 *.la
 *.a
+
+bin/
+.*.sw[a-z]
+*~
+\#*\#
+.DS_Store
