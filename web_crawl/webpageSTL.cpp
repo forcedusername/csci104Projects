@@ -10,8 +10,6 @@
 #include "comparatorsSTL.h"
 #include "webpageSTL.h"
 
-//is this necssary?
-#include "web_crawler.h"
 
 bool  WebPtr_compare::operator()(WebPage* const page1, WebPage* const page2)
 {
