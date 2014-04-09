@@ -14,5 +14,4 @@
 ####We've get contacted and started working on the project.
 ####Makefile for WebCrawler is in the web crawler folder so two makefiles can exist simultaneously.
 ####webCrawlDriver.cpp is the driver program for Web Crawl application. 
-####Executables for web crawler is stored in bin directory in web crawl folder so move executable accordingly to
-####same directory as datafile to properly test. 
+####Executables for web crawler is stored in bin directory in web crawl folder so move executable accordingly to same directory as datafiles to properly test. 
