@@ -16,26 +16,6 @@ using namespace std;
 //first finish getting all the links from the seed file and finish writing.
 //stack or recursion? 
 
-//functions are: write file, parse, depth first search
-//call depth first search first, then call parse
-
-/*
-void WebCrawler::open_file (string input_file, map<string, WebPage*> &pageMap){
-	ifstream input (input_file.c_str());
-	//ifstream input;
-    string webfilename;
-
-    //int position = 0;
-    while (getline (input, webfilename)){
-        WebPage* pWebPage = new WebPage(webfilename);
-        webPagePtrList.push_back(pWebPage);
-        pageMap.insert (pair <string, WebPage*> (webfilename, pWebPage));
-    }
-
-	
-}
-*/
-
 void WebCrawler :: write_file (char* output_file, map<string, WebPage*> &pageMap){
 	//use parsing before, now this code is for writing to text file and recursing for the DFS
 	//situation is: you have already found the outgoing links in a certain webpage...
@@ -67,8 +47,6 @@ void WebCrawler :: parse (const char* filename, map<string, WebPage*> &pageMap){
 	
 	ifstream input (web_name.c_str());
 	string placer;
-	//so what happens in these four lines......
-	//never entered for first two files...
 	
 	while (getline (input, placer)){
 		insert->lineVector.push_back (placer);
@@ -179,14 +157,14 @@ void WebCrawler :: parse (const char* filename, map<string, WebPage*> &pageMap){
 				//you go and do your depth search if 
 					//what do you do if the webpage isnt in the map??
 			
-					string webfile (webpage);
-					cout<<"Entering catch because: "<<webfile<<" isn't in pagemap."<<endl;
-					WebPage *pPoints2WebPage= new WebPage(webfile);
-					insert->points_to.insert(pPoints2WebPage);
-					pPoints2WebPage->connected_to.insert (insert);
+			string webfile (webpage);
+			cout<<"Entering catch because: "<<webfile<<" isn't in pagemap."<<endl;
+			WebPage *pPoints2WebPage= new WebPage(webfile);
+			insert->points_to.insert(pPoints2WebPage);
+			pPoints2WebPage->connected_to.insert (insert);
 					//pageMap.insert 
 					
-					parse (pPoints2WebPage->filename().c_str(), pageMap);
+			parse (pPoints2WebPage->filename().c_str(), pageMap);
 					//depth_search (insert, pageMap);
 					//but this doesn't recognize anything as an outgoing link.....
 					
@@ -222,63 +200,3 @@ void WebCrawler :: parse (const char* filename, map<string, WebPage*> &pageMap){
   
 } // parse
 
-/*
-void WebCrawler::depth_search (WebPage* search_links, map <string, WebPage*> &allPages){
-	
-	Set <WebPage*, WebPtr_compare> outgoing = search_links->allOutgoingLinks(); 
-	
-	//make a copy and then keep removing things from outCopy?
-	//you want to make a copy of the outgoing, but is this possible 
-	//Set <WebPage*, WebPtr_compare> outCopy=outgoing;
-	Set <WebPage*, WebPtr_compare>::iterator next_pageOut= outgoing.begin();
-	
-	//is this check needed? yes, because you'll shrink outCopy 
-	if (next_pageOut!=outgoing.end()){
-		//you want to get to the end of the thread before you start checking
-		
-		Set<WebPage*, WebPtr_compare>::iterator next_pagePtr= next_pageOut++;
-		
-		//can you remove an element via iterator
-		//outCopy.erase (next_pageOut);
-		//you remove so that you can shrink outCopy because you keep doing begin
-		//do you want to do that here though? 
-		
-		depth_search (*next_pagePtr, allPages);
-	}
-	
-	//end of what though? because you're just checking if you've hit the end of the
-	//outgoing links of your particular pointer 
-	//you'll have to keep a running count of every web page you've found w filenames 
-	//this just means that you've reached a file w no hyperlinks?
-	
-	else {
-		//results.insert (*next_pageOut);
-		Set<WebPage*, WebPtr_compare>::iterator next_pagePtr=outgoing.begin();
-		while (next_pagePtr!=outgoing.end()){
-			//try {
-			//	WebPage* dummy= allPages.at (*next_pagePtr);
-			//	next_pagePtr++;
-			//}
-			//catch (...){
-				WebPage* next= *next_pagePtr; 
-				WebPage* add_page= new WebPage (next->filename()); 
-				//parse it
-				allPages.insert (pair<string, WebPage*> (next->filename(), add_page));
-				//insert into map of all webpages so you can keep track
-				//you should parse after you update the map?
-				
-				//parse (next->filename(), allPages);
-				//add_page->parse (next->filename(), allPages);
-				
-				next_pagePtr++;
-				//here, you get the webpage pointer from next page ptr 
-				//does the webpage that next page ptr points to have a filename? 
-			//}
-		}
-		//outCopy.erase (next_pagePtr);
-		
-		return;
-	}
-	
-}
-*/
